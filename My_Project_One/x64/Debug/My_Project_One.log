@@ -1,0 +1,4 @@
+﻿  My_Project_One.cpp
+C:\Users\HYPERPC\source\repos\My_Project_One\My_Project_One\My_Project_One.cpp(35,13): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\HYPERPC\source\repos\My_Project_One\My_Project_One\My_Project_One.cpp(71,13): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  My_Project_One.vcxproj -> C:\Users\HYPERPC\source\repos\My_Project_One\x64\Debug\My_Project_One.exe

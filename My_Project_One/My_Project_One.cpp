@@ -131,8 +131,11 @@ public:
 
 class MotherBoard : public CPU_LEGAL
 {
-public:
+private:
+
 	bool CPU_LEGAL = true;
+
+public:
 
 	void Installed() override
 	{
@@ -164,9 +167,25 @@ public:
 	}
 };
 
-class PC
+///////////////////////////////////////////////////////////////////////////////
+
+class PC//Main user class
 {
+private:
+	string age;
 public:
+	PC() {};//Дефолтный конструктор c++шный
+	//2 функций можно и убрать, тестил свой конструктор
+	PC(string age)
+	{
+		this->age = age;
+	}
+
+	void Print()
+	{
+		cout << age << endl;
+	}
+
 	void Installed_detail(Detail& detail)
 	{
 		detail.Installed();
@@ -177,12 +196,12 @@ public:
 		detail.DetailOnGuarantees();
 	}
 
-	void GoGame(Detail & detail)
+	void GoGame(Detail& detail)
 	{
 		detail.DetailWork();
 	}
 
-	void PrAuthentication(Bought & bought)
+	void PrAuthentication(Bought& bought)
 	{
 		cout << "Идёт процедура проверки процессора" << endl;
 
@@ -208,37 +227,37 @@ int main()
 	RAM ram;
 	MotherBoard motherboard;
 
-	PC people;
-
-	//Тут легальный CPU
-	people.GoGame(cpu_legal);
-	cout << endl;
-	people.Installed_detail(cpu_legal);
-	people.DetailOnGuarantees(cpu_legal);
-	people.PrAuthentication(cpu_legal);
-	cout << endl;
-
-	//Тут не легальный CPU
-	people.GoGame(cpu_for_black_market);
-	cout << endl;
-	people.Installed_detail(cpu_for_black_market);
-	people.PrAuthentication(cpu_for_black_market);
-	cout << endl;
-
-	//Тут RAM
-	people.Installed_detail(ram);
-	people.GoGame(ram);
-	cout << endl;
-
-	//Тут мат.плата
-	people.GoGame(motherboard);
-	cout << endl;
-	people.Installed_detail(motherboard);
-	people.PrAuthentication(motherboard);
-	cout << endl;
-
+	PC people("One");
+	people.Print();
+	//Тестил конструктор свой
+	//Что ниже в коментах можно раскоментировать
 	
+	////Тут легальный CPU
+	//people.GoGame(cpu_legal);
+	//cout << endl;
+	//people.Installed_detail(cpu_legal);
+	//people.DetailOnGuarantees(cpu_legal);
+	//people.PrAuthentication(cpu_legal);
+	//cout << endl;
 
+	////Тут нелегальный CPU
+	//people.GoGame(cpu_for_black_market);
+	//cout << endl;
+	//people.Installed_detail(cpu_for_black_market);
+	//people.PrAuthentication(cpu_for_black_market);
+	//cout << endl;
+
+	////Тут RAM
+	//people.Installed_detail(ram);
+	//people.GoGame(ram);
+	//cout << endl;
+
+	////Тут мат.плата
+	//people.GoGame(motherboard);
+	//cout << endl;
+	//people.Installed_detail(motherboard);
+	//people.PrAuthentication(motherboard);
+	//cout << endl;
 
 	return 0;
 }
